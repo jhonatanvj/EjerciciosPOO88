@@ -2,25 +2,27 @@ package co.edu.udsitrital.controller;
 
 import java.util.Scanner;
 
+import co.edu.udistrital.model.NumeroFinal;
+
 public class AplMain {
 
 	public static void main(String[] args) {
 		Scanner leer = new Scanner(System.in);
-		int a, b, c;
+		NumeroFinal n1 = new NumeroFinal();
 		do {
 			System.out.println("Escriba el primer numero de un digito: ");
-			a = leer.nextInt();
+			n1.setA(leer.nextInt());
 			leer.nextLine();
 			System.out.println("Escriba el segundo numero de un digito: ");
-			b = leer.nextInt();
+			n1.setB(leer.nextInt());
 			leer.nextLine();
 			System.out.println("Escriba el tercer numero de un digito: ");
-			c = leer.nextInt();
+			n1.setC(leer.nextInt());
 			leer.nextLine();
-		} while (a > 10 || b > 10 || c > 10);
+		}while (n1.comprobar() == true);
 
-		int x = a * 100 + b * 10 + c;
-		System.out.println("Los tres numeros son: " + x);
+		n1.unionNumeros();
+		System.out.println("Los tres numeros son: " + n1.getX());
 		leer.close();
 
 	}
